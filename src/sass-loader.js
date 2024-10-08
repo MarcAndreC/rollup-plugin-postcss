@@ -28,15 +28,15 @@ export default {
   process({ code }) {
     return new Promise((resolve, reject) => {
       const sass = loadSassOrThrow()
-      const render = pify(sass.render.bind(sass))
-      const data = this.options.data || ''
+      const compile = pify(sass.compile.bind(sass))
+      //const data = this.options.data || ''
       workQueue.add(() =>
-        render({
+        compile(this.id, {
           ...this.options,
-          file: this.id,
+          /*file: this.id,
           data: data + code,
           indentedSyntax: /\.sass$/.test(this.id),
-          sourceMap: this.sourceMap,
+          sourceMap: this.sourceMap,*/
           importer: [
             (url, importer, done) => {
               if (!moduleRe.test(url)) return done({ file: url })
