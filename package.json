@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/egoist/rollup-plugin-postcss.git"
+    "url": "git+https://github.com/MarcAndreC/rollup-plugin-postcss.git"
   },
   "keywords": [
     "postcss",
