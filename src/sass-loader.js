@@ -38,6 +38,7 @@ export default {
 
               const moduleUrl = url.slice(1)
               const partialUrl = getUrlOfPartial(moduleUrl)
+              console.log('TEST', moduleUrl, partialUrl)
 
               const options = {
                 basedir: path.dirname(importer),
