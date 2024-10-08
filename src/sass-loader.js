@@ -25,18 +25,13 @@ const sassModuleIds = ['sass']
 export default {
   name: 'sass',
   test: /\.(sass|scss)$/,
-  process({ code }) {
+  process() {
     return new Promise((resolve, reject) => {
       const sass = loadSassOrThrow()
       const compile = pify(sass.compile.bind(sass))
-      //const data = this.options.data || ''
       workQueue.add(() =>
         compile(this.id, {
           ...this.options,
-          /*file: this.id,
-          data: data + code,
-          indentedSyntax: /\.sass$/.test(this.id),
-          sourceMap: this.sourceMap,*/
           importer: [
             (url, importer, done) => {
               if (!moduleRe.test(url)) return done({ file: url })
